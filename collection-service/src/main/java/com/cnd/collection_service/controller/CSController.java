@@ -11,34 +11,34 @@ import java.util.List;
 @RequestMapping("/collections")
 public class CSController {
 
-    private final CSService collectionService;
+    private final CSService csService;
 
     public CSController(CSService collectionService) {
-        this.collectionService = collectionService;
+        this.csService = collectionService;
     }
 
     @GetMapping
     public List<Collection> getAllCollections() {
-        return collectionService.getAllCollections();
+        return csService.getAllCollections();
     }
 
     @GetMapping("/{id}")
     public Collection getCollectionById(@PathVariable Long id) {
-        return collectionService.getCollectionById(id);
+        return csService.getCollectionById(id);
     }
 
     @PostMapping
     public Collection createCollection(@RequestBody Collection collection) {
-        return collectionService.createCollection(collection);
+        return csService.createCollection(collection);
     }
 
     @PutMapping("/{id}")
     public Collection updateCollection(@PathVariable Long id, @RequestBody Collection collection) {
-        return collectionService.updateCollection(id, collection);
+        return csService.updateCollection(id, collection);
     }
 
     @DeleteMapping("/{id}")
     public void deleteCollection(@PathVariable Long id) {
-        collectionService.deleteCollection(id);
+        csService.deleteCollection(id);
     }
 }

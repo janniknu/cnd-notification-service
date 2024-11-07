@@ -9,35 +9,36 @@ import java.util.List;
 @Service
 public class CSService {
 
-    private final CSRepository collectionRepository;
+    private final CSRepository csRepository;
 
     public CSService(CSRepository collectionRepository) {
-        this.collectionRepository = collectionRepository;
+        this.csRepository = collectionRepository;
     }
 
     public List<Collection> getAllCollections() {
-        return collectionRepository.findAll();
+        return csRepository.findAll();
     }
 
     public Collection getCollectionById(Long id) {
-        return collectionRepository.findById(id).orElse(null);
+        return csRepository.findById(id).orElse(null);
     }
 
     public Collection createCollection(Collection collection) {
-        return collectionRepository.save(collection);
+
+        return csRepository.save(collection);
     }
 
     public Collection updateCollection(Long id, Collection collection) {
-        Collection existingCollection = collectionRepository.findById(id).orElse(null);
+        Collection existingCollection = csRepository.findById(id).orElse(null);
         if (existingCollection != null) {
             existingCollection.setName(collection.getName());
             // Update other fields as necessary
-            return collectionRepository.save(existingCollection);
+            return csRepository.save(existingCollection);
         }
         return null;
     }
 
     public void deleteCollection(Long id) {
-        collectionRepository.deleteById(id);
+        csRepository.deleteById(id);
     }
 }
