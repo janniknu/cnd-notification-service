@@ -10,11 +10,13 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor
+@Table(name = "collections")
 public class Collection {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String name;
 
     @ManyToOne
