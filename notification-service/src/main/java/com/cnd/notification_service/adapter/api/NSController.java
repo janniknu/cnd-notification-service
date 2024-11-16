@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@RequestMapping("/collections")
+@RequestMapping("/notifications")
 @RestController
 public class NSController {
 
@@ -21,43 +21,7 @@ public class NSController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Notification>> getAllCollections() {
-        return new ResponseEntity<>(nsService.getAllCollections(), HttpStatus.OK);
+    public ResponseEntity<List<Notification>> getNotifications(@RequestParam String username) {
+        return new ResponseEntity<>(nsService.getNotifications(username), HttpStatus.OK);
     }
-
-    /*
-    @GetMapping("/{id}")
-    public ResponseEntity<Collection> getCollectionById(@PathVariable Long id) {
-        System.out.println(id);
-        return new ResponseEntity<>(csService.getCollectionById(id), HttpStatus.OK);
-    }
-
-    @PostMapping
-    public Collection createCollection(@RequestBody Collection collection) {
-        System.out.println(collection);
-        return csService.createCollection(collection);
-    }
-
-    @PutMapping("/{id}")
-    public Collection updateCollection(@PathVariable Long id, @RequestBody Collection collection) {
-        System.out.println("ID: " + id + ", Collection: " + collection);
-        return csService.updateCollection(id, collection);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteCollection(@PathVariable Long id) {
-        System.out.println("ID: " + id);
-        csService.deleteCollection(id);
-    }
-    @PostMapping("/{id}/recipe")
-    public Collection addRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
-        return csService.addRecipe(id, recipe);
-    }
-
-    @DeleteMapping("/{id}/recipe")
-    public Collection removeRecipe(@PathVariable Long id, @RequestBody Recipe recipe) {
-        return csService.removeRecipe(id, recipe);
-    }
-    /*
-     */
 }

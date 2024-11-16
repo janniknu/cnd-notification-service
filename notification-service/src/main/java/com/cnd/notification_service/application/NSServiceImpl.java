@@ -15,10 +15,14 @@ public class NSServiceImpl implements NSService {
     public NSServiceImpl(NSRepository repository) {
         this.repository = repository;
     }
+    
+    @Override
+    public List<Notification> getNotifications(String username) {
+        return repository.findByUser(username);
+    }
 
     @Override
-    public List<Notification> getAllCollections() {
-        System.out.println(repository);
-        return List.of();
+    public void saveNotification(Notification notification) {
+        repository.save(notification);
     }
 }

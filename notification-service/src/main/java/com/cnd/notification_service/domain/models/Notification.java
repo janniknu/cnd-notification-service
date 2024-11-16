@@ -2,8 +2,6 @@ package com.cnd.notification_service.domain.models;
 
 import lombok.*;
 
-import java.util.List;
-
 //lombok muss am Ende noch entfernt werden, damit model so basic wie möglich ist
 
 @Data
@@ -11,8 +9,7 @@ import java.util.List;
 public class Notification {
 
     private Long id;
-    private String name;
-    private User author;
-    private String description;
-    private List<Recipe> recipes;
+    private String user;
+    private String title;
+    private String message;
 }
