@@ -14,7 +14,7 @@ public class NotificationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String user;
+    private String username;
     private String title;
     private String message;
 }

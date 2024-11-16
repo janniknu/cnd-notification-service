@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JpaNSRepository extends CrudRepository<NotificationEntity, Long> {
-    List<NotificationEntity> findByUser(String user);
+    List<NotificationEntity> findByUsername(String username);
 }

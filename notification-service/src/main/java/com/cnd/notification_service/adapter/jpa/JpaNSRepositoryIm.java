@@ -19,9 +19,9 @@ public class JpaNSRepositoryIm implements NSRepository {
     }
 
     @Override
-    public List<Notification> findByUser(String user) {
-        return repo.findByUser(user).stream()
-                .map(entity -> new Notification(entity.getId(), entity.getUser(), entity.getTitle(), entity.getMessage()))
+    public List<Notification> findByUser(String username) {
+        return repo.findByUsername(username).stream()
+                .map(entity -> new Notification(entity.getId(), entity.getUsername(), entity.getTitle(), entity.getMessage()))
                 .collect(Collectors.toList());
     }
 
