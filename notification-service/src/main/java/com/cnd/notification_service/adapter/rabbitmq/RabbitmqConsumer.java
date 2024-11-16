@@ -1,4 +1,4 @@
-/*package com.cnd.notification_service.adapter.rabbitmq;
+package com.cnd.notification_service.adapter.rabbitmq;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
@@ -22,5 +22,3 @@ public class RabbitmqConsumer {
         nsService.saveNotification(notification);
     }
 }
-
- */
