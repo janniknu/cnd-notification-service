@@ -1,0 +1,29 @@
+services:
+  postgres_db:
+    image: postgres:17.0
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    
+  notification-service:
+    build: ./cnd-notification-service
+    image: notification-service
+    command: java -jar /app/notification_service.jar
+    volumes:
+      - ./cnd-notification-service:/code
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      postgres_db:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
