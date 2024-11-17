@@ -17,4 +17,10 @@ public class NotificationEntity {
     private String username;
     private String title;
     private String message;
+
+    public NotificationEntity(String username, String title, String message) {
+        this.username = username;
+        this.title = title;
+        this.message = message;
+    }
 }

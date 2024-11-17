@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping("/notifications")
 @RestController
 public class NSController {
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(NSController.class);
 
     private final NSService nsService;
 
@@ -22,6 +23,7 @@ public class NSController {
 
     @GetMapping
     public ResponseEntity<List<Notification>> getNotifications(@RequestParam String username) {
+        logger.info("called username:" + username);
         return new ResponseEntity<>(nsService.getNotifications(username), HttpStatus.OK);
     }
 }

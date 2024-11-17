@@ -18,7 +18,8 @@ public class RabbitmqConsumer {
 
     @RabbitListener(queues = "collection.updated")
     public void receiveMessage(Notification notification) {
-        logger.info("Received <{}>", notification);
-        //nsService.saveNotification(notification);
+        //public void receiveMessage(String notification) {
+        logger.info("Empfangene Nachricht <{}>", notification);
+        nsService.saveNotification(notification);
     }
 }
