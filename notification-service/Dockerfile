@@ -23,4 +23,4 @@ COPY --from=build /app/target/*.jar notification_service.jar
 EXPOSE 8080
 
 # Setze den Befehl zum Starten des Notification-Service
-CMD ["java", "-jar", "notification_service.jar"]
+#CMD ["java", "-jar", "notification_service.jar"]
